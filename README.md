@@ -24,8 +24,8 @@ To view a branch: git checkout [branch-name]
 <hr />
 
 Branch names are minimal for easy typing:
- 
- - 
+
+- **01-basics** - Initial commit with files generated with create-react-app
 
 ## Available Scripts
 
