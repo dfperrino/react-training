@@ -26,6 +26,7 @@ To view a branch: git checkout [branch-name]
 Branch names are minimal for easy typing:
 
 - **01-basics** - Initial commit with files generated with create-react-app
+- **02-components** - Basic components creation: hooks, lists...
 
 ## Available Scripts
 
