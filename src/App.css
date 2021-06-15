@@ -6,6 +6,29 @@
   padding: 0 5em;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
