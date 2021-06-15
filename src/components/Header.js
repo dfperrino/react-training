@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-class Header extends React.Component {
-  componentDidMount() {
+const Header = (props) => {
+  // On mount
+  useEffect(() => {
     window.alert("mount");
-  }
-  componentDidUpdate() {
+  }, []);
+
+  // On updates
+  useEffect(() => {
     window.alert("update");
-  }
-  render() {
-    return (
-      <header onClick={this.props.onClick}>
-        <h1>{this.props.title}</h1>
-        <nav>
-          <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
-            <li>Option 4</li>
-          </ul>
-        </nav>
-      </header>
-    );
-  }
-}
+  }, [props.title]);
+
+  return (
+    <header onClick={props.onClick}>
+      <h1>{props.title}</h1>
+      <nav>
+        <ul>
+          <li>Option 1</li>
+          <li>Option 2</li>
+          <li>Option 3</li>
+          <li>Option 4</li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
 export default Header;
