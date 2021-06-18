@@ -1,9 +1,10 @@
 import React from "react";
 import { useUser } from "../state/UserContext";
 
-const Header = ({ title, onClick, style = {} }) => {
+const Header = ({ title, style = {} }) => {
+  const { changeUser } = useUser();
   return (
-    <header style={style} onClick={onClick}>
+    <header style={style} onClick={changeUser}>
       <h1>{title}</h1>
       <Nav />
       <UserBox />

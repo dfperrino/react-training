@@ -9,13 +9,11 @@ import { UserProvider } from "./state/UserContext";
 
 const App = () => {
   const title = "React Training";
-  const [isFemale, setIsFemale] = React.useState(false);
-  const handleHeaderClick = () => setIsFemale(!isFemale);
 
   return (
     <div className="App">
-      <UserProvider isFemale={isFemale}>
-        <Header title={title} onClick={handleHeaderClick} />
+      <UserProvider>
+        <Header title={title} />
         <SubHeader />
         <Content />
         <Footer />

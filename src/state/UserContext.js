@@ -3,10 +3,13 @@ import { fetchUsernameByGender } from "../api/user";
 
 const UserContext = React.createContext({
   userName: null,
+  changeUser: () => {},
 });
 
-const UserProvider = ({ children, isFemale = false }) => {
+const UserProvider = ({ children, initialFemale = false }) => {
   const [userName, setUserName] = React.useState("pepito");
+  const [isFemale, setIsFemale] = React.useState(initialFemale);
+  const handleHeaderClick = () => setIsFemale(!isFemale);
 
   React.useEffect(() => {
     const fetchUserName = async () => {
@@ -20,6 +23,7 @@ const UserProvider = ({ children, isFemale = false }) => {
     <UserContext.Provider
       value={{
         userName,
+        changeUser: handleHeaderClick,
       }}
     >
       {children}
