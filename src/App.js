@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import List from "./components/List";
 import Header from "./components/Header";
+import BugComponent from "./components/BugComponent";
 import { useState } from "react";
 import { allergens } from "./data";
 
@@ -20,7 +21,10 @@ function App() {
   return (
     <div className="App">
       <Header title={title} isFemale={isFemale} onClick={handleHeaderClick} />
-      <img src={logo} className="App-logo" alt="logo" />
+      <div>
+        <img src={logo} className="App-logo" alt="logo" />
+        <BugComponent />
+      </div>
 
       <div className="flex w-100">
         <div className="w-50">
