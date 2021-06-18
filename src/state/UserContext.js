@@ -5,39 +5,65 @@ const defaultState = {
   userName: null,
   isLoading: false,
   isLoaded: false,
-  changeUser: () => {},
 };
 
-const UserContext = React.createContext(defaultState);
+const UserContext = React.createContext({
+  ...defaultState,
+  changeUser: () => {},
+});
+
+const userReducer = (state, action) => {
+  switch (action.type) {
+    case "LOADING_USER": {
+      return {
+        userName: null,
+        isLoading: true,
+        isLoaded: false,
+      };
+    }
+    case "SET_USER": {
+      return {
+        userName: action.payload,
+        isLoading: false,
+        isLoaded: true,
+      };
+    }
+    case "CLEAR_USER": {
+      return defaultState;
+    }
+    default: {
+      throw new Error(`Unhandled action type: ${action.type}`);
+    }
+  }
+};
 
 const UserProvider = ({ children, initialFemale = false }) => {
-  const [userName, setUserName] = React.useState(defaultState.userName);
-  const [isLoading, setIsLoading] = React.useState(defaultState.isLoading);
-  const [isLoaded, setIsLoaded] = React.useState(defaultState.isLoaded);
+  const [state, dispatch] = React.useReducer(userReducer, defaultState);
+  const dispatchAction = React.useCallback(
+    (type, payload) => {
+      dispatch({ type, payload });
+    },
+    [dispatch],
+  );
   const [isFemale, setIsFemale] = React.useState(initialFemale);
   const handleHeaderClick = () => setIsFemale(!isFemale);
 
   React.useEffect(() => {
     const fetchUserName = async () => {
-      setIsLoading(true);
-      setIsLoaded(false);
+      dispatchAction("LOADING_USER");
       const name = await fetchUsernameByGender(isFemale);
-      setUserName(name);
-      setIsLoading(false);
-      setIsLoaded(true);
+      dispatchAction("SET_USER", name);
     };
     setTimeout(() => {
       fetchUserName();
     }, 1000);
-  }, [isFemale]);
+  }, [dispatchAction, isFemale]);
 
   return (
     <UserContext.Provider
       value={{
-        userName,
+        ...state,
         changeUser: handleHeaderClick,
-        isLoading,
-        isLoaded,
       }}
     >
       {children}
