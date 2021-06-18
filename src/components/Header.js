@@ -18,15 +18,15 @@ const Header = (props) => {
     window.alert("update");
   }, [props.title]);
 
-  const calculateValue = () => {
+  const calculateValue = React.useCallback(() => {
     const t0 = performance.now();
     const value = heavyCalc();
     const t1 = performance.now();
     console.log("La llamada heavyCalc tardó " + (t1 - t0) + " milisegundos.");
     return value;
-  };
+  }, []);
 
-  const calculatedValue = React.useMemo(calculateValue, []);
+  const calculatedValue = React.useMemo(calculateValue, [calculateValue]);
 
   useEffect(() => {
     console.log("hola");
