@@ -1,4 +1,5 @@
 import React from "react";
+import { usePrevious } from "../utils/usePrevious";
 
 const mockApiCall = async (isFemale) =>
   new Promise((resolve) => {
@@ -18,6 +19,9 @@ const Header = ({ title, onClick, isFemale = false }) => {
     };
     fetchUserName();
   }, [isFemale]);
+
+  const prevUserName = usePrevious(userName);
+  console.log(prevUserName);
 
   return (
     <header onClick={onClick}>
