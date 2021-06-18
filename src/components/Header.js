@@ -26,8 +26,11 @@ const Header = (props) => {
     return value;
   };
 
-  // const calculatedValue = calculateValue();
   const calculatedValue = React.useMemo(calculateValue, []);
+
+  useEffect(() => {
+    console.log("hola");
+  }, [calculateValue]);
 
   return (
     <header onClick={props.onClick}>
