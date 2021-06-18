@@ -7,17 +7,19 @@ import { allergens } from "./data";
 
 function App() {
   const [menu, setMenu] = useState([]);
-  const [title, setTitle] = useState("React Training");
+  const [isFemale, setIsFemale] = useState(false);
+
+  const title = "React Training";
 
   const handleAdd = (id) => {
     setMenu((pv) => [...pv, allergens.find((a) => a.id === id)]);
   };
 
-  const handleHeaderClick = () => setTitle(title + "g");
+  const handleHeaderClick = () => setIsFemale(!isFemale);
 
   return (
     <div className="App">
-      <Header title={title} onClick={handleHeaderClick} />
+      <Header title={title} isFemale={isFemale} onClick={handleHeaderClick} />
       <img src={logo} className="App-logo" alt="logo" />
 
       <div className="flex w-100">

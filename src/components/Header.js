@@ -1,26 +1,27 @@
 import React from "react";
 
-const mockApiCall = async () =>
+const mockApiCall = async (isFemale) =>
   new Promise((resolve) => {
     setTimeout(() => {
-      resolve("Michael Jordan");
+      resolve(isFemale ? "Michelle Jordan" : "Michael Jordan");
     }, 5000);
   });
 
-const Header = (props) => {
+const Header = ({ title, onClick, isFemale = false }) => {
   const [userName, setUserName] = React.useState("pepito");
 
   React.useEffect(() => {
+    console.log("passing");
     const fetchUserName = async () => {
-      const name = await mockApiCall();
+      const name = await mockApiCall(isFemale);
       setUserName(name);
     };
     fetchUserName();
-  }, []);
+  }, [isFemale]);
 
   return (
-    <header onClick={props.onClick}>
-      <h1>{props.title}</h1>
+    <header onClick={onClick}>
+      <h1>{title}</h1>
       <nav>
         <ul>
           <li>Option 1</li>
