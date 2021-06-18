@@ -22,12 +22,12 @@ function App() {
   return (
     <div className="App">
       <Header title={title} isFemale={isFemale} onClick={handleHeaderClick} />
-      <div>
+      <>
         <img src={logo} className="App-logo" alt="logo" />
         <ErrorCatcher>
           <BugComponent />
         </ErrorCatcher>
-      </div>
+      </>
 
       <div className="flex w-100">
         <div className="w-50">
