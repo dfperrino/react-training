@@ -1,4 +1,5 @@
 import React from "react";
+import withRedBox from "../utils/withRedBox";
 
 const mockApiCall = async (isFemale) =>
   new Promise((resolve) => {
@@ -7,7 +8,7 @@ const mockApiCall = async (isFemale) =>
     }, 5000);
   });
 
-const Header = ({ title, onClick, isFemale = false }) => {
+const Header = ({ title, onClick, isFemale = false, style = {} }) => {
   const [userName, setUserName] = React.useState("pepito");
 
   React.useEffect(() => {
@@ -19,7 +20,7 @@ const Header = ({ title, onClick, isFemale = false }) => {
   }, [isFemale]);
 
   return (
-    <header onClick={onClick}>
+    <header style={style} onClick={onClick}>
       <h1>{title}</h1>
       <nav>
         <ul>
@@ -34,4 +35,4 @@ const Header = ({ title, onClick, isFemale = false }) => {
   );
 };
 
-export default Header;
+export default withRedBox(Header);
