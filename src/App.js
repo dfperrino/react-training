@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import SubHeader from "./components/SubHeader";
 import Content from "./components/Content";
+import Footer from "./components/Footer";
 
 import { fetchUsernameByGender } from "./api/user";
 
@@ -33,6 +34,7 @@ const App = () => {
       <Header title={title} userName={username} onClick={handleHeaderClick} />
       <SubHeader />
       <Content />
+      <Footer userName={username} />
     </div>
   );
 };
