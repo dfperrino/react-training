@@ -3,6 +3,7 @@ import "./App.css";
 import List from "./components/List";
 import Header from "./components/Header";
 import BugComponent from "./components/BugComponent";
+import ErrorCatcher from "./components/ErrorCatcher";
 import { useState } from "react";
 import { allergens } from "./data";
 
@@ -23,7 +24,9 @@ function App() {
       <Header title={title} isFemale={isFemale} onClick={handleHeaderClick} />
       <div>
         <img src={logo} className="App-logo" alt="logo" />
-        <BugComponent />
+        <ErrorCatcher>
+          <BugComponent />
+        </ErrorCatcher>
       </div>
 
       <div className="flex w-100">
