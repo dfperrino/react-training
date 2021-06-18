@@ -1,11 +1,12 @@
 import React from "react";
+import { useUser } from "../state/UserContext";
 
-const Header = ({ title, onClick, userName, style = {} }) => {
+const Header = ({ title, onClick, style = {} }) => {
   return (
     <header style={style} onClick={onClick}>
       <h1>{title}</h1>
       <Nav />
-      <UserBox userName={userName} />
+      <UserBox />
     </header>
   );
 };
@@ -24,7 +25,8 @@ const Nav = () => {
   );
 };
 
-const UserBox = ({ userName }) => {
+const UserBox = () => {
+  const { userName } = useUser();
   return <h3>{userName}</h3>;
 };
 

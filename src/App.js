@@ -5,36 +5,21 @@ import Header from "./components/Header";
 import SubHeader from "./components/SubHeader";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
-
-import { fetchUsernameByGender } from "./api/user";
-
-const useUser = (isFemale) => {
-  const [userName, setUserName] = React.useState("pepito");
-
-  React.useEffect(() => {
-    const fetchUserName = async () => {
-      const name = await fetchUsernameByGender(isFemale);
-      setUserName(name);
-    };
-    fetchUserName();
-  }, [isFemale]);
-
-  return userName;
-};
+import { UserProvider } from "./state/UserContext";
 
 const App = () => {
   const title = "React Training";
   const [isFemale, setIsFemale] = React.useState(false);
   const handleHeaderClick = () => setIsFemale(!isFemale);
 
-  const username = useUser(isFemale);
-
   return (
     <div className="App">
-      <Header title={title} userName={username} onClick={handleHeaderClick} />
-      <SubHeader />
-      <Content />
-      <Footer userName={username} />
+      <UserProvider isFemale={isFemale}>
+        <Header title={title} onClick={handleHeaderClick} />
+        <SubHeader />
+        <Content />
+        <Footer />
+      </UserProvider>
     </div>
   );
 };
