@@ -1,36 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-const heavyCalc = () => {
-  for (let index = 0; index < 1e8; index++) {
-    // nothing
-  }
-  return 0;
-};
+const mockApiCall = async () =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Michael Jordan");
+    }, 5000);
+  });
 
 const Header = (props) => {
-  // On mount
-  useEffect(() => {
-    window.alert("mount");
+  const [userName, setUserName] = React.useState("pepito");
+
+  React.useEffect(() => {
+    const fetchUserName = async () => {
+      const name = await mockApiCall();
+      setUserName(name);
+    };
+    fetchUserName();
   }, []);
-
-  // On updates
-  useEffect(() => {
-    window.alert("update");
-  }, [props.title]);
-
-  const calculateValue = React.useCallback(() => {
-    const t0 = performance.now();
-    const value = heavyCalc();
-    const t1 = performance.now();
-    console.log("La llamada heavyCalc tardó " + (t1 - t0) + " milisegundos.");
-    return value;
-  }, []);
-
-  const calculatedValue = React.useMemo(calculateValue, [calculateValue]);
-
-  useEffect(() => {
-    console.log("hola");
-  }, [calculateValue]);
 
   return (
     <header onClick={props.onClick}>
@@ -43,6 +29,7 @@ const Header = (props) => {
           <li>Option 4</li>
         </ul>
       </nav>
+      <h3>{userName}</h3>
     </header>
   );
 };
