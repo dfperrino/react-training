@@ -1,5 +1,4 @@
 import React from "react";
-import withRedBox from "../utils/withRedBox";
 
 const mockApiCall = async (isFemale) =>
   new Promise((resolve) => {
@@ -35,4 +34,4 @@ const Header = ({ title, onClick, isFemale = false, style = {} }) => {
   );
 };
 
-export default withRedBox(Header);
+export default Header;
