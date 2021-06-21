@@ -27,6 +27,12 @@ Branch names are minimal for easy typing:
 
 - **01-basics** - Initial commit with files generated with create-react-app
 - **02-components** - Basic components creation: hooks, lists...
+- **03-classes** - Classes based components
+- **04-hooks** - React Hooks
+- **05-advanced_concepts** - Error boundaries, Fragments, HOCs...
+- **06-context** - Context API
+- **07-react-router** - React router basics
+- **08-react-router** - React router exercise resolutions
 
 ## Available Scripts
 
