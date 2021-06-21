@@ -17,7 +17,7 @@ const Nav = () => {
     <nav>
       <ul>
         <NavLink to="/" exact>Home 🏠</NavLink>
-        <NavLink to="/menu">Menú 🍕</NavLink>
+        <NavLink to="/allergen">Menú 🍕</NavLink>
         <NavLink to="/help">Help 🚧</NavLink>
       </ul>
     </nav>
