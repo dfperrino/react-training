@@ -19,7 +19,7 @@ const App = () => {
         <Header title={title} />
         <SubHeader />
         <Switch>
-          <Route path="/menu">
+          <Route path="/allergen">
             <Content />
           </Route>
           <Route path="/allergen/:name">
