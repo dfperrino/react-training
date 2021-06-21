@@ -1,6 +1,6 @@
 import React from "react";
 import { useUser } from "../state/UserContext";
-
+import { Link, NavLink } from "react-router-dom"
 const Header = ({ title, style = {} }) => {
   const { changeUser } = useUser();
   return (
@@ -16,11 +16,9 @@ const Nav = () => {
   return (
     <nav>
       <ul>
-        <li>Option 1</li>
-        <li>Option 2</li>
-        <li>Option 3</li>
-
-        <li>Option 4</li>
+        <NavLink to="/" exact>Home 🏠</NavLink>
+        <NavLink to="/menu">Menú 🍕</NavLink>
+        <NavLink to="/help">Help 🚧</NavLink>
       </ul>
     </nav>
   );
