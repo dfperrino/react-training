@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import SubHeader from "./components/SubHeader";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
+import Help from "./components/Help";
 import AllergenDetail from "./components/AllergenDetail";
 import { UserProvider } from "./state/UserContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -19,17 +20,14 @@ const App = () => {
         <Header title={title} />
         <SubHeader />
         <Switch>
+        <Route path="/allergen/:name">
+            <AllergenDetail />
+          </Route>
           <Route path="/allergen">
             <Content />
           </Route>
-          <Route path="/allergen/:name">
-            <AllergenDetail />
-          </Route>
           <Route path="/help">
-            <div>
-              <h1> Ayuda </h1>
-              <p>Help text on administration pages is generally fairly brief.</p>
-            </div>
+            <Help/>
           </Route>
           <Route path="/">
             <div>

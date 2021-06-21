@@ -10,7 +10,7 @@ const Allergen = (props) => {
 
   return (
     <div>
-      {props.icon} - {props.name}
+      {props.icon} - <span onClick={props.onClick}>{props.name}</span>
       {props.hot && "🔥"}
       {props.showButton && (
         <>
