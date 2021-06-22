@@ -32,8 +32,9 @@ Branch names are minimal for easy typing:
 - **05-advanced_concepts** - Error boundaries, Fragments, HOCs...
 - **06-context** - Context API
 - **07-react-router** - React router basics
-- **08-react-router** - React router exercise resolutions
+- **08-react-router** - React router exercise resolution
 - **09-axios** - Axios basics
+- **10-axios** - Axios exercise resolution
 
 ## Available Scripts
 
