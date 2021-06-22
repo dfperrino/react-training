@@ -1,6 +1,6 @@
 import React from "react";
 import { useUser } from "../state/UserContext";
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 const Header = ({ title, style = {} }) => {
   const { changeUser } = useUser();
   return (
