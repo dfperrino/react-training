@@ -33,6 +33,7 @@ Branch names are minimal for easy typing:
 - **06-context** - Context API
 - **07-react-router** - React router basics
 - **08-react-router** - React router exercise resolutions
+- **09-axios** - Axios basics
 
 ## Available Scripts
 
