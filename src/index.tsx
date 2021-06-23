@@ -1,20 +1,48 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IntlProvider } from 'react-intl';
+import { FormattedMessage, IntlProvider } from 'react-intl';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-
 const messages = {
   test: 'holas',
 };
 
 ReactDOM.render(
-  <React.StrictMode>
-    <IntlProvider messages={messages} locale="es" defaultLocale="es">
-      <App />
-    </IntlProvider>
-  </React.StrictMode>,
+  <IntlProvider messages={messages} locale="es" defaultLocale="es">
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/about">
+            <div>
+              <FormattedMessage id="test" /> about
+            </div>
+          </Route>
+          <Route path="/users">
+            <div>users</div>
+          </Route>
+          <Route path="/">
+            <App />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  </IntlProvider>,
   document.getElementById('root')
 );
 
