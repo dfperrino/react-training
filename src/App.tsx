@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -23,7 +24,9 @@ function App() {
 
         <Switch>
           <Route path="/about">
-            <div>about</div>
+            <div>
+              <FormattedMessage id="test" /> about
+            </div>
           </Route>
           <Route path="/users">
             <div>users</div>

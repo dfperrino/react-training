@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { IntlProvider } from 'react-intl';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+
+const messages = {
+  test: 'holas',
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IntlProvider messages={messages} locale="es" defaultLocale="es">
+      <App />
+    </IntlProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
